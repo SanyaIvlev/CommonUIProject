@@ -29,6 +29,9 @@ public:
 	FText Description;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "AchievementInfo")
+	FText DetailedDescription;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "AchievementInfo")
 	TSoftObjectPtr<UTexture2D> Icon;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "AchievementInfo")
@@ -36,4 +39,7 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "AchievementInfo")
 	EAchievementType Type;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "AchievementInfo")
+	FText Hint;
 };
