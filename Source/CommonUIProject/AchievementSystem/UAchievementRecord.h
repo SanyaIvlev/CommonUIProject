@@ -5,7 +5,7 @@
 #include "UAchievementRecord.generated.h"
 
 UCLASS()
-class COMMONUIPROJECT_API UAchievementRecord : public UClass
+class COMMONUIPROJECT_API UAchievementRecord : public UObject
 {
 	GENERATED_BODY()
 	
