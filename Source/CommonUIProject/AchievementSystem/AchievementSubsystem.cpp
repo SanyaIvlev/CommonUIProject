@@ -46,6 +46,11 @@ void UAchievementSubsystem::AddProgress(int32 ID, int32 Amount)
 		return;
 	}
 	
+	if (AchievementsRecords[ID]->bIsUnlocked)
+	{
+		return;
+	}
+	
 	AchievementsRecords[ID]->AddProgress(Amount);
 	
 	TSoftObjectPtr<UAchievementInfo> AchievementInfo = GetAchievementInfo(ID);
