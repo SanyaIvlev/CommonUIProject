@@ -15,6 +15,10 @@ class COMMONUIPROJECT_API UInventorySubsystem : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
 public:
-	UFUNCTION(BlueprintCallable)
-	TArray<TSoftObjectPtr<UInventoryItem>> GetAllExistingItems();
+	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+	
+	UFUNCTION(BlueprintPure)
+	TArray<UInventoryItem*> GetAllExistingItems();
+private:
+	TArray<UInventoryItem*> AllItems; 
 };

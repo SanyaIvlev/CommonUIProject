@@ -5,7 +5,20 @@
 
 #include "InventorySettings.h"
 
-TArray<TSoftObjectPtr<UInventoryItem>> UInventorySubsystem::GetAllExistingItems()
+void UInventorySubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
-	return UInventorySettings::GetConfig()->AllInventoryItems;
+	Super::Initialize(Collection);
+	
+	TArray<TSoftObjectPtr<UInventoryItem>> ItemsSoftArray = UInventorySettings::GetConfig()->AllInventoryItems;
+	
+	for (auto Item : ItemsSoftArray)
+	{
+		UInventoryItem* InventoryItem = Item.LoadSynchronous();
+		AllItems.Add(InventoryItem);
+	}
+}
+
+TArray<UInventoryItem*> UInventorySubsystem::GetAllExistingItems()
+{
+	return AllItems;
 }
